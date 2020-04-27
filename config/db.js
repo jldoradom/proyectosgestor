@@ -4,9 +4,11 @@ const mongoose = require('mongoose');
 require('dotenv').config({ path: 'variables.env' });
 // creamos la conexion a la db con esta funcion y al objeto mongoose y a la 
 // libreria dotenv para poder usar la variable de entorno DB_MONGO
+
+const URI = 'mongodb+srv://dbuser:12345@cluster0-qpgzc.mongodb.net/merntasks'
 const conectarDB = async() => {
     try {
-       await mongoose.connect(process.env.DB_MONGO, {
+       await mongoose.connect(URI, {
            useNewUrlParser: true,
            useUnifiedTopology: true,
            useFindAndModify: false 
