@@ -16,12 +16,8 @@ app.use( express.json({ extend: true }) );
 
 // puerto del servidor (el cliente  usara el 3000) el nombre PORT es
 // por Heroku que lo pide asi
-const PORT = process.env.PORT || 4000;
+const port = process.env.port || 4000;
 
-// Definir la pagina principal
-app.get('/', (req,res) =>{
-    res.send('Hola mundo')
-});
 
 // Hacemos que la app use las rutas y las importamos
 app.use('/api/usuarios', require('./routes/usuarios'));
@@ -33,8 +29,8 @@ app.use('/api/tareas', require('./routes/tareas'));
 
 
 // arrancar la app o servidor
-app.listen(PORT, () =>{
-    console.log(`El servidor esta funcionando en el puerto ${PORT}`);
+app.listen(port, '0.0.0.0', () =>{
+    console.log(`El servidor esta funcionando en el puerto ${port}`);
 });
 
 
